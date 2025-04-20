@@ -5,15 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beranda - MawiSMP</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background-color: #c42929;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #a51f1f;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #c42929;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Tentang MawiSMP -->
-  <section style="padding: 40px 20px; max-width: 900px; margin: auto; text-align: center;">
-    <h2 style="color: #c42929;">Apa itu MawiSMP?</h2>
-    <p style="font-size: 18px; line-height: 1.7;">
-      MawiSMP adalah server Minecraft survival multiplayer (SMP) yang menggabungkan elemen PvP, economy, dan komunitas aktif. Kami menyediakan fitur menarik seperti rank eksklusif, sistem shard, misi harian, dan mini-games untuk semua pemain!
+  <!-- Sticky Navbar -->
+  <div class="navbar">
+    <a href="#home">Beranda</a>
+    <a href="#rank">Rank</a>
+  </div>
+
+  <!-- Penjelasan MawiSMP -->
+  <section id="home">
+    <h2>Selamat Datang di MawiSMP</h2>
+    <p>
+      MawiSMP adalah server Minecraft survival multiplayer (SMP) berbasis komunitas yang menawarkan pengalaman bermain tak terlupakan! Kami menggabungkan sistem PvP kompetitif, sistem ekonomi berbasis shard, rank eksklusif, serta event mingguan yang seru. Server ini cocok untuk semua kalangan—baik pemula maupun pemain veteran.
     </p>
+    <p>
+      Nikmati fitur seperti warzone, custom fishing, misi harian, leaderboard, dan mini-games yang membuat gameplay makin bervariasi. Selain itu, sistem rank memungkinkan kamu mendapatkan akses ke fitur-fitur premium, item eksklusif, dan berbagai keistimewaan lainnya.
+    </p>
+    <p>
+      Bergabunglah dengan ratusan pemain lain dan bangun kerajaanmu di dunia MawiSMP!
+    </p>
+  </section>
+
+  <!-- Bagian Rank -->
+  <section id="rank">
+    <h2>Daftar Rank</h2>
+    <div class="rank-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding-top: 20px;">
+      <!-- Rank 1 -->
+      <div class="rank-card" style="position: relative; width: 200px; height: 280px; background: #111; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+        <h2 style="margin-top: 0;">Warrior</h2>
+        <p>Fitur dasar PvP dan sedikit boost.</p>
+        <button class="buy-button" style="margin-top: auto;">Beli</button>
+      </div>
+      <!-- Rank 2 -->
+      <div class="rank-card" style="position: relative; width: 200px; height: 280px; background: #111; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+        <h2 style="margin-top: 0;">Knight</h2>
+        <p>Bonus tambahan dan efek eksklusif.</p>
+        <button class="buy-button" style="margin-top: auto;">Beli</button>
+      </div>
+      <!-- Rank 3 -->
+      <div class="rank-card" style="position: relative; width: 200px; height: 280px; background: #111; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+        <h2 style="margin-top: 0;">Legend</h2>
+        <p>Akses penuh fitur premium server.</p>
+        <button class="buy-button" style="margin-top: auto;">Beli</button>
+      </div>
+    </div>
   </section>
 
 </body>
