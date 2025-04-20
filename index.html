@@ -5,12 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MawiSMP Store</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+      background-color: #1a1a1a;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px 0;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar button,
+    .dropdown-button {
+      color: white;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background-color: #c42929;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .navbar button:hover,
+    .dropdown-button:hover {
+      background-color: #a51f1f;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      min-width: 180px;
+      border-radius: 6px;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Halaman Virtual */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+    }
+
+    h2 {
+      text-align: center;
+      color: #c42929;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      text-align: center;
+      color: #ddd;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Sticky Navbar -->
-  <div style="position: sticky; top: 0; background: #111; padding: 15px; display: flex; justify-content: center; gap: 15px; z-index: 999;">
-    <button onclick="navigate('home')" class="dropdown-button">Beranda</button>
+  <!-- Navbar -->
+  <div class="navbar">
+    <button onclick="navigate('home')">Beranda</button>
     <div class="dropdown">
       <button class="dropdown-button">Kategori Rank</button>
       <div class="dropdown-content">
@@ -22,14 +122,22 @@
   </div>
 
   <!-- Halaman Beranda -->
-  <section id="home" style="padding: 40px;">
-    <h2 style="text-align: center; color: #c42929;">Selamat Datang di MawiSMP</h2>
-    <p style="text-align: center;">MawiSMP adalah server Minecraft survival multiplayer (SMP) dengan fitur lengkap seperti CPvP, ekonomi, fishing mania, dan sistem rank yang menarik. Bergabunglah dan jadilah bagian dari komunitas kami!</p>
+  <section id="home" class="active">
+    <h2>Selamat Datang di MawiSMP</h2>
+    <p>
+      MawiSMP adalah server Minecraft survival multiplayer (SMP) dengan fitur lengkap yang menggabungkan PvP, ekonomi, dan komunitas aktif. Kami menghadirkan sistem shard, rank eksklusif, misi harian, dan mini-game seru!
+    </p>
+    <p>
+      Dalam MawiSMP, kamu bisa memilih gaya bermainmu: bertarung di CPvP Arena, menjadi jutawan di sistem ekonomi, atau bersantai memancing dan menikmati fitur Fishing Mania.
+    </p>
+    <p>
+      Dapatkan rank eksklusif dan dukung server dengan membeli melalui store ini. Ayo bergabung dan jadilah bagian dari petualangan besar MawiSMP!
+    </p>
   </section>
 
-  <!-- Halaman Global -->
-  <section id="global" style="display:none; padding: 40px;">
-    <h2 style="text-align: center; color: #c42929;">Rank Global</h2>
+  <!-- Halaman Rank Global -->
+  <section id="global">
+    <h2>Rank Global</h2>
     <div class="rank-container">
       <div class="rank-card">
         <h2>Warrior</h2>
@@ -38,41 +146,41 @@
       </div>
       <div class="rank-card">
         <h2>Elite</h2>
-        <p>Bonus harian dan fitur tambahan.</p>
+        <p>Bonus harian dan efek khusus.</p>
         <button class="buy-button">Beli</button>
       </div>
     </div>
   </section>
 
-  <!-- Halaman CPvP -->
-  <section id="cpvp" style="display:none; padding: 40px;">
-    <h2 style="text-align: center; color: #c42929;">Rank CPvP Economy</h2>
+  <!-- Halaman Rank CPvP -->
+  <section id="cpvp">
+    <h2>Rank CPvP Economy</h2>
     <div class="rank-container">
       <div class="rank-card">
         <h2>Fighter</h2>
-        <p>Boost damage dan akses warzone.</p>
+        <p>Boost damage dan fitur jual item.</p>
         <button class="buy-button">Beli</button>
       </div>
       <div class="rank-card">
         <h2>Slayer</h2>
-        <p>Efek visual + fitur jual item.</p>
+        <p>Akses warzone dan efek visual premium.</p>
         <button class="buy-button">Beli</button>
       </div>
     </div>
   </section>
 
-  <!-- Halaman Fishing -->
-  <section id="fishing" style="display:none; padding: 40px;">
-    <h2 style="text-align: center; color: #c42929;">Rank Fishing Mania</h2>
+  <!-- Halaman Rank Fishing -->
+  <section id="fishing">
+    <h2>Rank Fishing Mania</h2>
     <div class="rank-container">
       <div class="rank-card">
         <h2>Angler</h2>
-        <p>Peluang ikan langka lebih besar.</p>
+        <p>Peluang dapat ikan langka lebih tinggi.</p>
         <button class="buy-button">Beli</button>
       </div>
       <div class="rank-card">
         <h2>Fisher Master</h2>
-        <p>Bonus shard dan efek fishing spesial.</p>
+        <p>Bonus shard dan efek memancing spesial.</p>
         <button class="buy-button">Beli</button>
       </div>
     </div>
@@ -81,16 +189,16 @@
   <!-- Script Navigasi -->
   <script>
     function navigate(id) {
-      const sections = ['home', 'global', 'cpvp', 'fishing'];
+      const sections = document.querySelectorAll('section');
       sections.forEach(sec => {
-        document.getElementById(sec).style.display = (sec === id) ? 'block' : 'none';
+        sec.classList.remove('active');
       });
+      document.getElementById(id).classList.add('active');
     }
   </script>
 
 </body>
 </html>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
