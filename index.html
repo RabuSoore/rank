@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <button onclick="toggleMenu()">Kategori</button>
+
+  <div id="menu" class="menu">
+    <a href="#">Pilihan 1</a>
+    <a href="#">Pilihan 2</a>
+    <a href="#">Pilihan 3</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</head>
+<body>
     <header>
         <h1>MawiSMP Rank Store</h1>
         <p>Rank untuk server global alias server skyblock, survival, oneblock!</p>
