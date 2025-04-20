@@ -489,27 +489,85 @@
                 <!-- Fitur rank akan dimasukkan di sini -->
             </div>
         </div>
-    </div>    <!-- Popup Overlay -->
-    <div id="popup-overlay" class="popup-overlay">
-        <div id="popup" class="popup-content">
-            <button class="popup-close" onclick="closePopup()">X</button>
-            <div id="popup-content">
-                <!-- Fitur rank akan dimasukkan di sini -->
-            </div>
-        </div>
     </div>
 
-    <!-- ... Lanjutkan paste semua rank-card kamu dari file sebelumnya ... -->
+    <script>
+        function showPopup(rankName, features) {
+            // Menampilkan popup dengan fitur dari rank yang dipilih
+            const popupOverlay = document.getElementById('popup-overlay');
+            const popupContent = document.getElementById('popup-content');
 
-  </div>
+            // Mengisi konten popup dengan fitur rank
+            let featuresList = features.map(feature => `<li>${feature}</li>`).join('');
+            popupContent.innerHTML = `<h3>${rankName}</h3><ul>${featuresList}</ul>`;
 
-  <!-- Popup -->
-  <div id="popup-overlay" class="popup-overlay">
-    <div id="popup" class="popup-content">
-      <button class="popup-close" onclick="closePopup()">X</button>
-      <div id="popup-content"></div>
-    </div>
-  </div>
+            // Menampilkan popup dengan overlay
+            popupOverlay.classList.add('show-popup');
+            
+            // Efek transisi untuk popup
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            // Menutup popup dan menghilangkan overlay
+            const popupOverlay = document.getElementById('popup-overlay');
+            
+            // Animasi menutup - removed animation from popup element to fix the freeze issue
+            setTimeout(() => {
+                popupOverlay.classList.remove('show-popup');
+                document.body.style.overflow = 'auto';
+            }, 250);
+        }
+
+        // Efek animasi saat scroll
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.rank-card');
+            cards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                }
+            });
+        });
+        
+        // Inisialisasi animasi kartu
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.rank-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        });
+        
+        // Efek hover pada tombol info
+        const infoButtons = document.querySelectorAll('.info-btn');
+        infoButtons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.innerHTML = '?';
+            });
+            
+            button.addEventListener('mouseout', function() {
+                this.innerHTML = 'i';
+            });
+        });
+        
+        // Reset popup on close to avoid animation freezing issues
+        document.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('popup-overlay')) {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+</html>
 </section>
 
   <!-- Halaman Rank CPvP -->
@@ -912,90 +970,3 @@
         </div>
     </main>
 
-    <!-- Popup Overlay -->
-    <div id="popup-overlay" class="popup-overlay">
-        <div id="popup" class="popup-content">
-            <button class="popup-close" onclick="closePopup()">X</button>
-            <div id="popup-content">
-                <!-- Fitur rank akan dimasukkan di sini -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function showPopup(rankName, features) {
-            // Menampilkan popup dengan fitur dari rank yang dipilih
-            const popupOverlay = document.getElementById('popup-overlay');
-            const popupContent = document.getElementById('popup-content');
-
-            // Mengisi konten popup dengan fitur rank
-            let featuresList = features.map(feature => `<li>${feature}</li>`).join('');
-            popupContent.innerHTML = `<h3>${rankName}</h3><ul>${featuresList}</ul>`;
-
-            // Menampilkan popup dengan overlay
-            popupOverlay.classList.add('show-popup');
-            
-            // Efek transisi untuk popup
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePopup() {
-            // Menutup popup dan menghilangkan overlay
-            const popupOverlay = document.getElementById('popup-overlay');
-            
-            // Animasi menutup - removed animation from popup element to fix the freeze issue
-            setTimeout(() => {
-                popupOverlay.classList.remove('show-popup');
-                document.body.style.overflow = 'auto';
-            }, 250);
-        }
-
-        // Efek animasi saat scroll
-        window.addEventListener('scroll', function() {
-            const cards = document.querySelectorAll('.rank-card');
-            cards.forEach(card => {
-                const cardPosition = card.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if(cardPosition < screenPosition) {
-                    card.style.opacity = '1';
-                }
-            });
-        });
-        
-        // Inisialisasi animasi kartu
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.rank-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px)';
-                card.style.transition = `all 0.5s ease ${index * 0.1}s`;
-                
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100 + (index * 100));
-            });
-        });
-        
-        // Efek hover pada tombol info
-        const infoButtons = document.querySelectorAll('.info-btn');
-        infoButtons.forEach(button => {
-            button.addEventListener('mouseover', function() {
-                this.innerHTML = '?';
-            });
-            
-            button.addEventListener('mouseout', function() {
-                this.innerHTML = 'i';
-            });
-        });
-        
-        // Reset popup on close to avoid animation freezing issues
-        document.addEventListener('click', function(event) {
-            if (event.target === document.getElementById('popup-overlay')) {
-                closePopup();
-            }
-        });
-    </script>
-</body>
-</html>
