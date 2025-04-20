@@ -1,190 +1,426 @@
-/* Enhanced Animation Styles */
+/* DRAMATIC ENHANCED ANIMATIONS */
 
-/* Card hover effect - more dynamic */
+/* Card Transform Effects */
 .rank-card {
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.8s cubic-bezier(0.2, 0.85, 0.4, 1.5);
+    transform-style: preserve-3d;
 }
 
 .rank-card:hover {
-    transform: translateY(-15px) rotateX(5deg) rotateZ(1deg);
-    box-shadow: 0 20px 40px rgba(196, 41, 41, 0.35), 0 10px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-25px) rotateX(10deg) rotateZ(3deg) scale(1.05);
+    box-shadow: 
+        0 30px 60px rgba(196, 41, 41, 0.5),
+        0 15px 25px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(196, 41, 41, 0.3);
+    z-index: 10;
 }
 
-/* Improved shine effect */
+/* Dramatic Neon Glow Effect */
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(196, 41, 41, 0.5), 0 0 10px rgba(196, 41, 41, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(196, 41, 41, 0.8), 0 0 40px rgba(196, 41, 41, 0.4), 0 0 60px rgba(196, 41, 41, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(196, 41, 41, 0.5), 0 0 10px rgba(196, 41, 41, 0.2);
+    }
+}
+
+.rank-card:hover h2 {
+    animation: neonGlow 2s infinite;
+    text-shadow: 0 0 10px rgba(196, 41, 41, 0.8), 0 0 20px rgba(196, 41, 41, 0.4);
+}
+
+/* Advanced Shine Effect with Multiple Layers */
+.rank-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(
+        circle, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0) 70%
+    );
+    opacity: 0;
+    transform: rotate(45deg);
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.rank-card:hover::before {
+    opacity: 0.8;
+    transform: translate(-30%, -30%) rotate(45deg);
+}
+
+/* Dramatic Particle Effects (Requires JS for full effect, but CSS setup here) */
 .rank-card::after {
-    background: linear-gradient(225deg, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.1) 40%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        rgba(255, 255, 255, 0.1) 60%, 
-        rgba(255, 255, 255, 0) 100%);
-    transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.8s;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='2' fill='%23c42929' fill-opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0;
+    transform: scale(3);
+    transition: opacity 0.8s, transform 1.2s;
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Enhanced button effect */
+.rank-card:hover::after {
+    opacity: 0.8;
+    transform: scale(1);
+    animation: particleFade 3s infinite alternate;
+}
+
+@keyframes particleFade {
+    0% { opacity: 0.2; }
+    100% { opacity: 0.8; }
+}
+
+/* Explosive Button Animation */
 .buy-button {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+    overflow: visible;
 }
 
 .buy-button::before {
-    background: linear-gradient(90deg, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.4) 50%, 
-        rgba(255, 255, 255, 0) 100%);
-    transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+    z-index: -1;
+    border-radius: 50%;
 }
 
 .buy-button:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(196, 41, 41, 0.7);
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 
+        0 15px 30px rgba(196, 41, 41, 0.8),
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(196, 41, 41, 0.4);
+    letter-spacing: 1.5px;
 }
 
-/* Animated badge */
-@keyframes pulseBadge {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+.buy-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    animation: buttonExplosion 1s ease-out;
 }
 
-.badge-primary {
-    animation: pulseBadge 2.5s infinite;
+@keyframes buttonExplosion {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
-/* Improved price highlight */
-@keyframes priceGlow {
-    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
-    50% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(196, 41, 41, 0.3); }
-    100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+/* Price Animation with Counting Effect */
+@keyframes priceJump {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.15); }
 }
 
 .price {
-    animation: priceGlow 3s infinite alternate;
+    position: relative;
+    animation: priceJump 3s ease-in-out infinite;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(196, 41, 41, 0.3),
+        0 0 30px rgba(196, 41, 41, 0.2);
 }
 
-/* Floating animation for discount tag */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-    100% { transform: translateY(0); }
-}
-
+/* Discount Tag with Ribbon Effect */
 .discount-tag {
-    animation: float 3s ease-in-out infinite;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transform-origin: top right;
+    animation: discountPulse 2s infinite alternate;
 }
 
-/* Header background animation */
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.discount-tag::before {
+    content: "SALE";
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background: linear-gradient(135deg, #f2a500, #ff6b00);
+    transform: rotate(45deg) translateY(-20px) translateX(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(242, 165, 0, 0.5);
+    transform-origin: center;
+}
+
+@keyframes discountPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* Header with Dramatic Parallax Effect */
+header {
+    overflow: hidden;
+    position: relative;
 }
 
 header::before {
-    background: linear-gradient(135deg, rgba(196, 41, 41, 0.8) 0%, rgba(196, 41, 41, 0) 70%, rgba(242, 165, 0, 0.2) 100%);
-    animation: gradientMove 10s ease infinite;
-    background-size: 200% 200%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(196, 41, 41, 0.8) 0%, rgba(196, 41, 41, 0) 40%),
+        radial-gradient(circle at 80% 30%, rgba(242, 165, 0, 0.6) 0%, rgba(242, 165, 0, 0) 40%);
+    animation: headerGlow 15s infinite alternate;
+    z-index: 0;
+    transform: scale(1.1);
 }
 
-/* Improved popup animation */
-@keyframes popupAnimation {
+@keyframes headerGlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+header h1 {
+    animation: textGlow 3s infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+    100% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(196, 41, 41, 0.6); }
+}
+
+/* Card Flip Effect (Add with JS) */
+.rank-card.flip {
+    transform: rotateY(180deg);
+}
+
+.rank-card-front, .rank-card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rank-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Card Entrance Animation - Staggered and Dramatic */
+@keyframes cardEntrance {
     0% {
-        transform: scale(0.7) translateY(30px);
         opacity: 0;
+        transform: translateY(100px) scale(0.8);
     }
-    70% {
-        transform: scale(1.05);
-        opacity: 1;
+    60% {
+        transform: translateY(-20px) scale(1.1);
     }
     100% {
-        transform: scale(1);
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.rank-card {
+    opacity: 0;
+    animation: cardEntrance 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+}
+
+.rank-container .rank-card:nth-child(1) { animation-delay: 0.2s; }
+.rank-container .rank-card:nth-child(2) { animation-delay: 0.4s; }
+.rank-container .rank-card:nth-child(3) { animation-delay: 0.6s; }
+.rank-container .rank-card:nth-child(4) { animation-delay: 0.8s; }
+.rank-container .rank-card:nth-child(5) { animation-delay: 1s; }
+
+/* Popup with Dramatic Entrance */
+@keyframes popupExplosion {
+    0% {
+        transform: scale(0.5) rotate(-5deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(3deg);
+    }
+    70% {
+        transform: scale(0.95) rotate(-1deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
         opacity: 1;
     }
 }
 
 .popup-content {
-    animation: popupAnimation 0.65s forwards cubic-bezier(0.18, 1.25, 0.4, 1);
+    animation: popupExplosion 0.7s cubic-bezier(0.3, 1.4, 0.5, 0.9) forwards;
 }
 
-/* Card entrance animation */
-@keyframes cardEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+/* 3D Image Tilt Effect - Pure CSS */
+.rank-card:hover img {
+    transform: perspective(500px) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+}
+
+/* Loading Animation with Growing Circle */
+@keyframes growShrink {
+    0%, 100% {
+        transform: scale(0.5);
+        opacity: 0.2;
     }
-    to {
+    50% {
+        transform: scale(1.2);
         opacity: 1;
-        transform: translateY(0);
     }
-}
-
-.rank-card {
-    animation: cardEntrance 0.8s cubic-bezier(0.21, 1.11, 0.55, 1.16);
-    animation-fill-mode: backwards;
-}
-
-/* Staggered animation delay for multiple cards */
-.rank-container .rank-card:nth-child(1) { animation-delay: 0.1s; }
-.rank-container .rank-card:nth-child(2) { animation-delay: 0.2s; }
-.rank-container .rank-card:nth-child(3) { animation-delay: 0.3s; }
-.rank-container .rank-card:nth-child(4) { animation-delay: 0.4s; }
-.rank-container .rank-card:nth-child(5) { animation-delay: 0.5s; }
-
-/* Improved loading animation */
-@keyframes loadingSpinner {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(180deg); border-width: 8px; }
-    50% { transform: rotate(360deg); border-width: 4px; }
-    75% { transform: rotate(540deg); border-width: 8px; }
-    100% { transform: rotate(720deg); border-width: 8px; }
 }
 
 .loading div {
-    animation: loadingSpinner 1.8s cubic-bezier(0.27, 0.71, 0.3, 0.93) infinite;
+    border-radius: 50%;
+    background-color: #c42929;
+    animation: growShrink 1.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
-/* Button click effect */
-.buy-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 3px 10px rgba(196, 41, 41, 0.5);
-    transition: all 0.1s;
+.loading div:nth-child(1) { animation-delay: -0.4s; }
+.loading div:nth-child(2) { animation-delay: -0.8s; }
+.loading div:nth-child(3) { animation-delay: -1.2s; }
+
+/* Feature List with Glowing Checkmarks */
+.features-list li::before {
+    content: '✓';
+    color: #c42929;
+    animation: checkmarkGlow 2s infinite alternate;
 }
 
-/* Feature list item entrance animation */
-@keyframes featureEntrance {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
+@keyframes checkmarkGlow {
+    0% { text-shadow: 0 0 2px rgba(196, 41, 41, 0.5); }
+    100% { text-shadow: 0 0 8px rgba(196, 41, 41, 1), 0 0 15px rgba(196, 41, 41, 0.8); }
+}
+
+/* Pulsating Border Effect */
+@keyframes borderPulse {
+    0%, 100% { 
+        border-color: rgba(196, 41, 41, 0.3);
+        box-shadow: 0 0 0 rgba(196, 41, 41, 0.1);
     }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    50% { 
+        border-color: rgba(196, 41, 41, 0.8);
+        box-shadow: 0 0 15px rgba(196, 41, 41, 0.5);
     }
 }
 
-.features-list li {
-    animation: featureEntrance 0.5s ease forwards;
-    opacity: 0;
+.rank-card:hover {
+    border: 1px solid rgba(196, 41, 41, 0.8);
+    animation: borderPulse 2s infinite;
 }
 
-.features-list li:nth-child(1) { animation-delay: 0.2s; }
-.features-list li:nth-child(2) { animation-delay: 0.3s; }
-.features-list li:nth-child(3) { animation-delay: 0.4s; }
-.features-list li:nth-child(4) { animation-delay: 0.5s; }
-.features-list li:nth-child(5) { animation-delay: 0.6s; }
+/* Spinning Logo Animation */
+.logo-container {
+    display: inline-block;
+    perspective: 1000px;
+}
 
-/* 3D Tilt Effect with mousemove - add with JavaScript */
-/* Add this JavaScript separately:
+.logo {
+    transition: transform 1.5s ease;
+    transform-style: preserve-3d;
+}
+
+.logo:hover {
+    transform: rotateY(360deg);
+}
+
+/* JavaScript to add for full effect (to be added separately):
+
 document.querySelectorAll('.rank-card').forEach(card => {
+    // Mouse movement for 3D effect
     card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / card.offsetWidth) - 0.5;
         const y = ((e.clientY - rect.top) / card.offsetHeight) - 0.5;
-        card.style.transform = `perspective(1000px) rotateX(${y * -10}deg) rotateY(${x * 10}deg) translateY(-15px)`;
+        
+        // Calculate rotation values
+        const rotateY = x * 20; // Max 20 degrees
+        const rotateX = y * -20; // Max 20 degrees
+        
+        // Apply the rotation
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) scale(1.05)`;
+        
+        // Store values as CSS variables for other effects
+        card.style.setProperty('--rotateX', rotateX + 'deg');
+        card.style.setProperty('--rotateY', rotateY + 'deg');
+        
+        // Move highlight effect
+        const highlight = card.querySelector('.card-highlight') || document.createElement('div');
+        highlight.className = 'card-highlight';
+        highlight.style.opacity = 0.7 - Math.abs(x) - Math.abs(y);
+        highlight.style.transform = `translate(${x * 100}px, ${y * 100}px)`;
     });
     
+    // Reset on mouse leave
     card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-        card.style.transition = 'transform 0.5s ease';
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) scale(1)';
+        card.style.transition = 'transform 0.6s ease';
+        
+        const highlight = card.querySelector('.card-highlight');
+        if (highlight) highlight.style.opacity = 0;
+    });
+    
+    // Flip card on click (toggle class)
+    card.addEventListener('dblclick', () => {
+        card.classList.toggle('flip');
+    });
+});
+
+// Particle effect for buttons
+document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', e => {
+        // Create particle explosion
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('span');
+            particle.className = 'button-particle';
+            
+            // Random position, size and color
+            const size = Math.random() * 10 + 5;
+            const destX = (Math.random() - 0.5) * 200;
+            const destY = (Math.random() - 0.5) * 200;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.background = `hsl(${Math.random() * 30 + 350}, 100%, 60%)`;
+            
+            button.appendChild(particle);
+            
+            // Animate to fly away
+            particle.animate([
+                { transform: 'translate(0, 0) scale(0)', opacity: 1 },
+                { transform: `translate(${destX}px, ${destY}px) scale(1)`, opacity: 0 }
+            ], {
+                duration: 1000,
+                easing: 'cubic-bezier(0, .9, .57, 1)',
+                fill: 'forwards'
+            }).onfinish = () => particle.remove();
+        }
     });
 });
 */
