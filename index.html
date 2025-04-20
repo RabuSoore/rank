@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beranda - MawiSMP</title>
+  <title>MawiSMP Store</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: white;
     }
 
     .navbar {
@@ -16,13 +23,15 @@
       background-color: #111;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 20px;
       padding: 15px 0;
       z-index: 999;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
-    .navbar a {
+    .navbar a,
+    .dropdown-button {
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -30,22 +39,47 @@
       border-radius: 6px;
       background-color: #c42929;
       transition: background 0.3s;
+      cursor: pointer;
     }
 
-    .navbar a:hover {
+    .navbar a:hover,
+    .dropdown-button:hover {
       background-color: #a51f1f;
     }
 
-    body {
-      background-color: #1a1a1a;
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      min-width: 180px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+      border-radius: 6px;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .dropdown-content a {
       color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      padding: 10px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
@@ -53,58 +87,122 @@
     h2 {
       text-align: center;
       color: #c42929;
+      margin-bottom: 30px;
     }
 
     p {
       font-size: 18px;
       line-height: 1.7;
       text-align: center;
+      color: #ddd;
+    }
+
+    .rank-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .rank-card {
+      position: relative;
+      width: 200px;
+      height: 280px;
+      background: #111;
+      color: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .buy-button {
+      margin-top: auto;
+      padding: 10px 15px;
+      background: #c42929;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      position: relative;
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Navbar -->
+  <!-- Navbar -->
   <div class="navbar">
     <a href="#home">Beranda</a>
-    <a href="#rank">Rank</a>
+    <div class="dropdown">
+      <button class="dropdown-button">Kategori Rank</button>
+      <div class="dropdown-content">
+        <a href="#global">Global</a>
+        <a href="#cpvp">CPvP Economy</a>
+        <a href="#fishing">Fishing Mania</a>
+      </div>
+    </div>
   </div>
 
-  <!-- Penjelasan MawiSMP -->
+  <!-- Beranda -->
   <section id="home">
     <h2>Selamat Datang di MawiSMP</h2>
     <p>
-      MawiSMP adalah server Minecraft survival multiplayer (SMP) berbasis komunitas yang menawarkan pengalaman bermain tak terlupakan! Kami menggabungkan sistem PvP kompetitif, sistem ekonomi berbasis shard, rank eksklusif, serta event mingguan yang seru. Server ini cocok untuk semua kalangan—baik pemula maupun pemain veteran.
+      MawiSMP adalah server Minecraft survival multiplayer (SMP) dengan fitur lengkap yang menggabungkan PvP, ekonomi, dan komunitas aktif. Kami menghadirkan sistem shard, rank eksklusif, misi harian, dan mini-game seru!
     </p>
     <p>
-      Nikmati fitur seperti warzone, custom fishing, misi harian, leaderboard, dan mini-games yang membuat gameplay makin bervariasi. Selain itu, sistem rank memungkinkan kamu mendapatkan akses ke fitur-fitur premium, item eksklusif, dan berbagai keistimewaan lainnya.
+      Dalam MawiSMP, kamu bisa memilih gaya bermainmu: bertarung di CPvP Arena, menjadi jutawan di sistem ekonomi, atau bersantai memancing dan menikmati fitur Fishing Mania.
     </p>
     <p>
-      Bergabunglah dengan ratusan pemain lain dan bangun kerajaanmu di dunia MawiSMP!
+      Dapatkan rank eksklusif dan dukung server dengan membeli melalui store ini. Ayo bergabung dan jadilah bagian dari petualangan besar MawiSMP!
     </p>
   </section>
 
-  <!-- Bagian Rank -->
-  <section id="rank">
-    <h2>Daftar Rank</h2>
-    <div class="rank-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding-top: 20px;">
-      <!-- Rank 1 -->
-      <div class="rank-card" style="position: relative; width: 200px; height: 280px; background: #111; border-radius: 12px; padding: 20px; box-sizing: border-box;">
-        <h2 style="margin-top: 0;">Warrior</h2>
-        <p>Fitur dasar PvP dan sedikit boost.</p>
-        <button class="buy-button" style="margin-top: auto;">Beli</button>
+  <!-- Rank: Global -->
+  <section id="global">
+    <h2>Rank Global</h2>
+    <div class="rank-container">
+      <div class="rank-card">
+        <h2>Warrior</h2>
+        <p>Fitur dasar untuk bertahan hidup dan PvP.</p>
+        <button class="buy-button">Beli</button>
       </div>
-      <!-- Rank 2 -->
-      <div class="rank-card" style="position: relative; width: 200px; height: 280px; background: #111; border-radius: 12px; padding: 20px; box-sizing: border-box;">
-        <h2 style="margin-top: 0;">Knight</h2>
-        <p>Bonus tambahan dan efek eksklusif.</p>
-        <button class="buy-button" style="margin-top: auto;">Beli</button>
+      <div class="rank-card">
+        <h2>Elite</h2>
+        <p>Bonus coin harian dan efek khusus.</p>
+        <button class="buy-button">Beli</button>
       </div>
-      <!-- Rank 3 -->
-      <div class="rank-card" style="position: relative; width: 200px; height: 280px; background: #111; border-radius: 12px; padding: 20px; box-sizing: border-box;">
-        <h2 style="margin-top: 0;">Legend</h2>
-        <p>Akses penuh fitur premium server.</p>
-        <button class="buy-button" style="margin-top: auto;">Beli</button>
+    </div>
+  </section>
+
+  <!-- Rank: CPvP Economy -->
+  <section id="cpvp">
+    <h2>Rank CPvP Economy</h2>
+    <div class="rank-container">
+      <div class="rank-card">
+        <h2>Fighter</h2>
+        <p>Boost damage dan fitur jual-beli item PvP.</p>
+        <button class="buy-button">Beli</button>
+      </div>
+      <div class="rank-card">
+        <h2>Slayer</h2>
+        <p>Efek visual keren & akses ke warzone premium.</p>
+        <button class="buy-button">Beli</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rank: Fishing Mania -->
+  <section id="fishing">
+    <h2>Rank Fishing Mania</h2>
+    <div class="rank-container">
+      <div class="rank-card">
+        <h2>Angler</h2>
+        <p>Perolehan ikan langka lebih tinggi.</p>
+        <button class="buy-button">Beli</button>
+      </div>
+      <div class="rank-card">
+        <h2>Fisher Master</h2>
+        <p>Bonus shard dan efek memancing eksklusif.</p>
+        <button class="buy-button">Beli</button>
       </div>
     </div>
   </section>
