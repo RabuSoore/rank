@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MawiSMP Store</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -15,7 +16,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Sticky Navbar */
     .navbar {
       position: sticky;
       top: 0;
@@ -45,7 +45,6 @@
       background-color: #a51f1f;
     }
 
-    /* Dropdown */
     .dropdown {
       position: relative;
     }
@@ -76,7 +75,6 @@
       display: block;
     }
 
-    /* Halaman Virtual */
     section {
       padding: 60px 20px;
       max-width: 1000px;
@@ -104,186 +102,32 @@
       color: #ddd;
     }
 
-    /* Rank Card Styling */
-    .rank-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .rank-card {
-      background-color: #222;
-      border-radius: 10px;
-      padding: 20px;
-      position: relative;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      transition: transform 0.3s, opacity 0.5s;
-    }
-
-    .rank-card h2 {
-      margin-top: 0;
-    }
-
-    .original-price {
-      display: block;
-      color: #999;
-      text-decoration: line-through;
-      margin-bottom: 5px;
-    }
-
-    .price-label {
-      display: block;
-      color: #ddd;
-      font-size: 14px;
-    }
-
-    .price {
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      margin: 10px 0;
-    }
-
-    .discount-tag {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: #c42929;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .buy-button {
-      display: block;
-      background-color: #c42929;
-      color: white;
-      text-decoration: none;
-      padding: 10px 0;
-      border-radius: 5px;
-      margin-top: 15px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .buy-button:hover {
-      background-color: #a51f1f;
-    }
-
-    .info-btn {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-style: italic;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .info-btn:hover {
-      background-color: #555;
-    }
-
-    /* Popup Styling */
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s, visibility 0.3s;
-    }
-
-    .popup-overlay.show-popup {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .popup-content {
-      position: relative;
-      background-color: #222;
-      padding: 25px;
-      border-radius: 10px;
-      max-width: 90%;
-      width: 400px;
-      max-height: 80vh;
-      overflow-y: auto;
-      color: #ddd;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      transform: translateY(-20px);
-      transition: transform 0.3s;
-    }
-
-    .show-popup .popup-content {
-      transform: translateY(0);
-    }
-
-    .popup-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #c42929;
-      color: white;
-      border: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .popup-content h3 {
-      color: #c42929;
-      margin-top: 0;
-      padding-right: 30px;
-    }
-
-    .popup-content ul {
-      padding-left: 20px;
-      margin-bottom: 0;
-    }
-
-    .popup-content li {
-      margin-bottom: 8px;
-    }
-
-    /* For Mobile Devices */
-    @media (max-width: 480px) {
+    /* Responsif popup di HP */
+    @media (max-width: 768px) {
       .popup-content {
-        width: 85%;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        font-size: 14px;
         padding: 20px;
       }
-    }
 
-    /* Header styling */
-    header h1 {
-      color: #c42929;
-      text-align: center;
-      margin-bottom: 10px;
-    }
+      .popup-close {
+        top: 10px;
+        right: 10px;
+        font-size: 16px;
+        width: 32px;
+        height: 32px;
+      }
 
-    header p {
-      margin-bottom: 30px;
+      .popup-content h3 {
+        font-size: 20px;
+      }
+
+      .popup-content ul {
+        padding-left: 20px;
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -302,7 +146,7 @@
     </div>
   </div>
 
-  <!-- Halaman Beranda -->
+  <!-- Beranda -->
   <section id="home" class="active">
     <h2>Selamat Datang di MawiSMP</h2>
     <p>
@@ -316,7 +160,7 @@
     </p>
   </section>
 
-  <!-- Halaman Rank Global -->
+  <!-- Section Global Rank -->
   <section id="global">
     <header>
       <h1>MawiSMP Rank Store</h1>
@@ -324,7 +168,6 @@
     </header>
 
     <div class="rank-container">
-      <!-- Rank Cards -->
       <div class="rank-card">
         <div class="discount-tag">33% OFF</div>
         <h2>Rank Petty</h2>
@@ -659,111 +502,96 @@
             'command /enderchest'
         ])">i</button>
         <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Mawi+" target="_blank" class="buy-button">Beli Sekarang</a>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup" class="popup-content">
+        <button class="popup-close" onclick="closePopup()">X</button>
+        <div id="popup-content"></div>
       </div>
     </div>
   </section>
 
-  <!-- Halaman CPvP -->
+  <!-- Section CPvP -->
   <section id="cpvp">
-    <header>
-      <h1>MawiSMP CPvP Economy Ranks</h1>
-      <p>Rank khusus untuk server CPvP Economy!</p>
-    </header>
-    
-    <div class="rank-container">
-      <!-- Placeholder untuk rank CPvP -->
-      <div class="rank-card">
-        <div class="discount-tag">20% OFF</div>
-        <h2>CPvP Fighter</h2>
-        <span class="original-price">Harga Asli: Rp 25.000</span>
-        <span class="price-label">Harga</span>
-        <div class="price">Rp 20.000</div>
-        <button class="info-btn" onclick="showPopup('CPvP Fighter', [
-            'Battle points +20%',
-            'Damage boost +5%',
-            'Regeneration boost',
-            'Akses ke arena eksklusif',
-            'Kit Fighter',
-            'Command /kit fighter',
-            'Command /heal (cooldown 5m)'
-        ])">i</button>
-        <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20CPvP%20Fighter" target="_blank" class="buy-button">Beli Sekarang</a>
-      </div>
-      
-      <div class="rank-card">
-        <div class="discount-tag">15% OFF</div>
-        <h2>CPvP Warrior</h2>
-        <span class="original-price">Harga Asli: Rp 50.000</span>
-        <span class="price-label">Harga</span>
-        <div class="price">Rp 42.500</div>
-        <button class="info-btn" onclick="showPopup('CPvP Warrior', [
-            'Battle points +35%',
-            'Damage boost +10%',
-            'Regeneration boost +',
-            'Akses ke arena eksklusif',
-            'Kit Warrior',
-            'Command /kit warrior',
-            'Command /heal (cooldown 3m)',
-            'Command /feed'
-        ])">i</button>
-        <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20CPvP%20Warrior" target="_blank" class="buy-button">Beli Sekarang</a>
-      </div>
-      
-      <div class="rank-card">
-        <div class="discount-tag">10% OFF</div>
-        <h2>CPvP Legend</h2>
-        <span class="original-price">Harga Asli: Rp 100.000</span>
-        <span class="price-label">Harga</span>
-        <div class="price">Rp 90.000</div>
-        <button class="info-btn" onclick="showPopup('CPvP Legend', [
-            'Battle points +50%',
-            'Damage boost +15%',
-            'Regeneration boost ++',
-            'Akses ke semua arena',
-            'Kit Legend',
-            'Command /kit legend',
-            'Command /heal (cooldown 1m)',
-            'Command /feed',
-            'Command /enderchest'
-        ])">i</button>
-        <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20CPvP%20Legend" target="_blank" class="buy-button">Beli Sekarang</a>
-      </div>
-    </div>
+    <h2>Coming Soon: Rank CPvP Economy</h2>
+    <p>Sedang dalam pengembangan...</p>
   </section>
-  
-  <!-- Halaman Fishing -->
+
+  <!-- Section Fishing -->
   <section id="fishing">
-    <header>
-      <h1>MawiSMP Fishing Mania Ranks</h1>
-      <p>Rank khusus untuk penggemar aktivitas memancing!</p>
-    </header>
-    
-    <div class="rank-container">
-      <!-- Placeholder untuk rank Fishing -->
-      <div class="rank-card">
-        <div class="discount-tag">25% OFF</div>
-        <h2>Fisherman</h2>
-        <span class="original-price">Harga Asli: Rp 20.000</span>
-        <span class="price-label">Harga</span>
-        <div class="price">Rp 15.000</div>
-        <button class="info-btn" onclick="showPopup('Fisherman', [
-            'Fishing luck +10%',
-            'Ikan langka +5%',
-            'Akses ke fishing spot eksklusif',
-            'Kit Fisherman',
-            'Command /kit fisherman'
-        ])">i</button>
-        <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Fisherman" target="_blank" class="buy-button">Beli Sekarang</a>
-      </div>
-      
-      <div class="rank-card">
-        <div class="discount-tag">20% OFF</div>
-        <h2>Master Angler</h2>
-        <span class="original-price">Harga Asli: Rp 45.000</span>
-        <span class="price-label">Harga</span>
-        <div class="price">Rp 36.000</div>
-        <button class="info-btn" onclick="showPopup('Master Angler', [
-            'Fishing luck +20%',
-            'Ikan langka +15%',
-            'Akses ke semua fishing spot',
-            'Kit Master Angler',
+    <h2>Coming Soon: Rank Fishing Mania</h2>
+    <p>Sedang dalam pengembangan...</p>
+  </section>
+
+  <!-- Script -->
+  <script>
+    function navigate(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    function showPopup(rankName, features) {
+      const popupOverlay = document.getElementById('popup-overlay');
+      const popupContent = document.getElementById('popup-content');
+      let featuresList = features.map(feature => `<li>${feature}</li>`).join('');
+      popupContent.innerHTML = `<h3>${rankName}</h3><ul>${featuresList}</ul>`;
+      popupOverlay.classList.add('show-popup');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+      const popupOverlay = document.getElementById('popup-overlay');
+      popupOverlay.classList.remove('show-popup');
+      document.body.style.overflow = 'auto';
+    }
+
+    document.getElementById('popup-overlay').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closePopup();
+      }
+    });
+
+    window.addEventListener('scroll', function () {
+      const cards = document.querySelectorAll('.rank-card');
+      cards.forEach(card => {
+        const cardPosition = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        if (cardPosition < screenPosition) {
+          card.style.opacity = '1';
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.rank-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 100 + (index * 100));
+      });
+
+      const infoButtons = document.querySelectorAll('.info-btn');
+      infoButtons.forEach(button => {
+        button.addEventListener('mouseover', function () {
+          this.innerHTML = '?';
+        });
+
+        button.addEventListener('mouseout', function () {
+          this.innerHTML = 'i';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
