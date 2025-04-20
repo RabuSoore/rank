@@ -137,20 +137,380 @@
 
   <!-- Halaman Rank Global -->
   <section id="global">
-    <h2>Rank Global</h2>
-    <div class="rank-container">
-      <div class="rank-card">
-        <h2>Warrior</h2>
-        <p>Fitur dasar survival dan PvP.</p>
-        <button class="buy-button">Beli</button>
-      </div>
-      <div class="rank-card">
-        <h2>Elite</h2>
-        <p>Bonus harian dan efek khusus.</p>
-        <button class="buy-button">Beli</button>
-      </div>
+  <header>
+    <h1>MawiSMP Rank Store</h1>
+    <p>Rank untuk server global alias server skyblock, survival, oneblock!</p>
+  </header>
+
+  <div class="rank-container">
+    <!-- Semua rank-card dari file kamu, contoh 1 dulu -->
+<div class="rank-card">
+            <div class="discount-tag">33% OFF</div>
+            <h2>Rank Petty</h2>
+            <span class="original-price">Harga Asli: Rp 15.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 10.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Petty', [
+                'Pwarp max 2',
+                'Vault max 2',
+                'Auction max 5',
+                'Fly max time 7,5 mins',
+                'home max 2',
+                'command /fly',
+                'Fitur 7',
+                'Fitur 8',
+                'Fitur 9',
+                'Fitur 10',
+                'Fitur 11',
+                'Fitur 12',
+                'Fitur 13'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Petty" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">25% OFF</div>
+            <h2>Rank VIP</h2>
+            <span class="original-price">Harga Asli: Rp 20.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 15.000</div>
+            <button class="info-btn" onclick="showPopup('Rank VIP', [
+                'Pwarp max 3',
+                'Vault max 3',
+                'Auction max 7',
+                'Fly max time 15 mins',
+                'home max 3',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'Fitur 10',
+                'Fitur 11',
+                'Fitur 12',
+                'Fitur 13'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20VIP" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">17% OFF</div>
+            <h2>Rank VIP+</h2>
+            <span class="original-price">Harga Asli: Rp 30.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 25.000</div>
+            <button class="info-btn" onclick="showPopup('Rank VIP+', [
+                'Pwarp max 4',
+                'Vault max 4',
+                'Auction max 10',
+                'Fly max time 30 mins',
+                'home max 4',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'Fitur 11',
+                'Fitur 12',
+                'Fitur 13'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20VIP+" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">13% OFF</div>
+            <h2>Rank MVP</h2>
+            <span class="original-price">Harga Asli: Rp 40.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 35.000</div>
+            <button class="info-btn" onclick="showPopup('Rank MVP', [
+                'Pwarp max 5',
+                'Vault max 5',
+                'Auction max 12',
+                'Fly max time 45 mins',
+                'home max 5',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'Fitur 12',
+                'Fitur 13'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20MVP" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">9% OFF</div>
+            <h2>Rank MVP+</h2>
+            <span class="original-price">Harga Asli: Rp 55.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 50.000</div>
+            <button class="info-btn" onclick="showPopup('Rank MVP+', [
+                'Pwarp max 6',
+                'Vault max 6',
+                'Auction max 15',
+                'Fly max time 60 mins',
+                'home max 6',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20MVP+" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">7% OFF</div>
+            <h2>Rank MVP++</h2>
+            <span class="original-price">Harga Asli: Rp 70.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 65.000</div>
+            <button class="info-btn" onclick="showPopup('Rank MVP++', [
+                'Pwarp max 7',
+                'Vault max 7',
+                'Auction max 20',
+                'Fly max time 90 mins',
+                'home max 7',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20MVP++" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">6% OFF</div>
+            <h2>Rank Premium</h2>
+            <span class="original-price">Harga Asli: Rp 85.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 80.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Premium', [
+                'Pwarp max 8',
+                'Vault max 8',
+                'Auction max 25',
+                'Fly time unlimited',
+                'home max 8',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Premium" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">9% OFF</div>
+            <h2>Rank Gacor</h2>
+            <span class="original-price">Harga Asli: Rp 110.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 100.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Gacor', [
+                'Pwarp max 10',
+                'Vault max 10',
+                'Auction max 30',
+                'Fly time unlimited',
+                'home max 10',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Gacor" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">7% OFF</div>
+            <h2>Rank Supreme</h2>
+            <span class="original-price">Harga Asli: Rp 135.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 125.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Supreme', [
+                'Pwarp max 12',
+                'Vault max 12',
+                'Auction max 35',
+                'Fly time unlimited',
+                'home max 12',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Supreme" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">6% OFF</div>
+            <h2>Rank Supreme+</h2>
+            <span class="original-price">Harga Asli: Rp 160.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 150.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Supreme+', [
+                'Pwarp max 15',
+                'Vault max 15',
+                'Auction max 40',
+                'Fly time unlimited',
+                'home max 15',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Supreme+" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">5% OFF</div>
+            <h2>Rank Donatur</h2>
+            <span class="original-price">Harga Asli: Rp 185.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 175.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Donatur', [
+                'Pwarp max 18',
+                'Vault max 18',
+                'Auction max 45',
+                'Fly time unlimited',
+                'home max 18',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Donatur" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">5% OFF</div>
+            <h2>Rank Donatur+</h2>
+            <span class="original-price">Harga Asli: Rp 210.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 200.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Donatur+', [
+                'Pwarp max 20',
+                'Vault max 20',
+                'Auction max 50',
+                'Fly time unlimited',
+                'home max 20',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Donatur+" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">6% OFF</div>
+            <h2>Rank Mawi</h2>
+            <span class="original-price">Harga Asli: Rp 265.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 250.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Mawi', [
+                'Pwarp max 25',
+                'Vault max 25',
+                'Auction max 60',
+                'Fly time unlimited',
+                'home max 25',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Mawi" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+
+        <div class="rank-card">
+            <div class="discount-tag">6% OFF</div>
+            <h2>Rank Mawi+</h2>
+            <span class="original-price">Harga Asli: Rp 320.000</span>
+            <span class="price-label">Harga</span>
+            <div class="price">Rp 300.000</div>
+            <button class="info-btn" onclick="showPopup('Rank Mawi+', [
+                'Pwarp max 30',
+                'Vault max 30',
+                'Auction max 75',
+                'Fly time unlimited',
+                'home max 30',
+                'command /fly',
+                'command /list',
+                'command /suicide',
+                'command /craft',
+                'command /near',
+                'command /heal',
+                'command /feed',
+                'command /enderchest'
+            ])">i</button>
+            <a href="https://wa.me/628892910155?text=Min%20mau%20beli%20Rank%20Mawi+" target="_blank" class="buy-button">Beli Sekarang</a>
+        </div>
+    </main>
+
+    <!-- Popup Overlay -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div id="popup" class="popup-content">
+            <button class="popup-close" onclick="closePopup()">X</button>
+            <div id="popup-content">
+                <!-- Fitur rank akan dimasukkan di sini -->
+            </div>
+        </div>
+    </div>    <!-- Popup Overlay -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div id="popup" class="popup-content">
+            <button class="popup-close" onclick="closePopup()">X</button>
+            <div id="popup-content">
+                <!-- Fitur rank akan dimasukkan di sini -->
+            </div>
+        </div>
     </div>
-  </section>
+
+    <!-- ... Lanjutkan paste semua rank-card kamu dari file sebelumnya ... -->
+
+  </div>
+
+  <!-- Popup -->
+  <div id="popup-overlay" class="popup-overlay">
+    <div id="popup" class="popup-content">
+      <button class="popup-close" onclick="closePopup()">X</button>
+      <div id="popup-content"></div>
+    </div>
+  </div>
+</section>
 
   <!-- Halaman Rank CPvP -->
   <section id="cpvp">
