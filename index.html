@@ -564,9 +564,18 @@
         });
     });
 </script>
-</body>
-</html>
 
+  <script>
+    function navigate(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+   
+<section>
   <!-- Halaman Rank CPvP -->
   <section id="cpvp">
     <h2>Rank CPvP Economy</h2>
@@ -600,7 +609,7 @@
       </div>
     </div>
   </section>
-
+ 
   <!-- Script Navigasi -->
   <script>
     function navigate(id) {
@@ -611,3 +620,6 @@
       document.getElementById(id).classList.add('active');
     }
   </script>
+
+</body>
+</html>
